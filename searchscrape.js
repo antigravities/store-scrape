@@ -3,7 +3,7 @@ var games = [];
 Array.prototype.slice.call(document.getElementsByClassName("search_result_row")).forEach(function(v){
 	if( v.getElementsByClassName("search_discount").length > 0 && v.getElementsByClassName("search_discount")[0].innerText.trim() != "" ) {
 		var game = [
-			document.getElementsByClassName("searchtag tag_dynamic")[0].children[0].innerText,
+			//document.getElementsByClassName("searchtag tag_dynamic")[0].children[0].innerText,
 			v.getElementsByClassName("title")[0].innerText.trim(),
 			v.getElementsByClassName("search_discount")[0].innerText.slice(1).trim(),
 			v.getElementsByClassName("search_price discounted")[0].children[0].innerText,
@@ -22,7 +22,7 @@ Array.prototype.slice.call(document.getElementsByClassName("search_result_row"))
 		}
 
 		game.push(v.getElementsByClassName("mac").length > 0 ? "YES" : "NO");
-		game.push(v.getElementsByClassName("win").length > 0 ? "YES" : "NO");
+		game.push(v.getElementsByClassName("windows").length > 0 ? "YES" : "NO");
 		game.push(v.getElementsByClassName("linux").length > 0 ? "YES" : "NO");
 
 		game.push(( v.getElementsByClassName("oculusrift").length > 0 || v.getElementsByClassName("htcvive").length > 0 || v.getElementsByTagName("razerosvr").length > 0 ) ? "YES" : "NO" );
