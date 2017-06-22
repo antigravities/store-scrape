@@ -61,6 +61,7 @@ Array.prototype.slice.call(document.getElementsByClassName("search_result_row"))
                 game.push("?");
                 game.push(link);
                 games.push(game.join("\t"));
+                xhr.abort();
                 waitingRequest--;
             }
         }
