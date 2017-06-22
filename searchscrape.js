@@ -1,6 +1,7 @@
 var games = [],
     parser = new DOMParser(),
-    waitingRequest = 0;
+    waitingRequest = 0,
+    totalRequest = document.getElementsByClassName("search_result_row").length;
 
 Array.prototype.slice.call(document.getElementsByClassName("search_result_row")).forEach(function (v) {
     if (v.getElementsByClassName("search_discount").length > 0 && v.getElementsByClassName("search_discount")[0].innerText.trim() != "") {
@@ -84,5 +85,9 @@ var timer = setInterval(function () {
     if(waitingRequest === 0){
         clearInterval(timer);
         console.log(games.join("\n"));
+    } else {
+        console.log("Fetching games %d / %d", totalRequest-waitingRequest, totalRequest);
     }
 }, 100);
+
+console.log("Fetching...\nThis may take a while");
