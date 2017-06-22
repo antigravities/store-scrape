@@ -43,7 +43,7 @@ Array.prototype.slice.call(document.getElementsByClassName("search_result_row"))
             xhr = new XMLHttpRequest();
         xhr.open('GET', link, true);
         xhr.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
+            if (this.readyState === 4 && this.status === 200) {
                 var response = parser.parseFromString(xhr.responseText, "text/html"),
                     cards = false,
                     children = response.getElementById('category_block').children;
@@ -54,6 +54,11 @@ Array.prototype.slice.call(document.getElementsByClassName("search_result_row"))
                     }
                 }
                 game.push(cards ? "YES" : "NO");
+                game.push(link);
+                games.push(game.join("\t"));
+                waitingRequest--;
+            } else if(this.readyState === 4) {
+                game.push("?");
                 game.push(link);
                 games.push(game.join("\t"));
                 waitingRequest--;
