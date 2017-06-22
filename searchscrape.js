@@ -54,10 +54,13 @@ Array.prototype.slice.call(document.getElementsByClassName("search_result_row"))
                     }
                 }
                 game.push(cards ? "YES" : "NO");
+                
+                game.push(response.getElementsByClassName("dynamic_bundle_description").length > 0 ? "YES" : "NO");
                 game.push(link);
                 games.push(game.join("\t"));
                 waitingRequest--;
             } else if(this.readyState === 4) {
+                game.push("?");
                 game.push("?");
                 game.push(link);
                 games.push(game.join("\t"));
