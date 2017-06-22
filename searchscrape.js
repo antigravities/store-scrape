@@ -45,17 +45,24 @@ Array.prototype.slice.call(document.getElementsByClassName("search_result_row"))
         xhr.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 var response = parser.parseFromString(xhr.responseText, "text/html"),
-                    cards = false,
-                    children = response.getElementById('category_block').children;
-                for (var i = 0, l = children.length; i < l; i++) {
-                    if (children[i].children[1].innerText === "Steam Trading Cards") {
-                        cards = true;
-                        break;
+                    cards = false;
+                try {
+                    var children = response.getElementById('category_block').children;
+                    for (var i = 0, l = children.length; i < l; i++) {
+                        if (children[i].children[1].innerText === "Steam Trading Cards") {
+                            cards = true;
+                            break;
+                        }
                     }
+                    game.push(cards ? "YES" : "NO");
+                } catch (e) {
+                    game.push("?");
                 }
-                game.push(cards ? "YES" : "NO");
-                
-                game.push(response.getElementsByClassName("dynamic_bundle_description").length > 0 ? "YES" : "NO");
+                try {
+                    game.push(response.getElementsByClassName("dynamic_bundle_description").length > 0 ? "YES" : "NO");
+                } catch (e) {
+                    game.push("?");
+                }
                 game.push(link);
                 games.push(game.join("\t"));
                 waitingRequest--;
