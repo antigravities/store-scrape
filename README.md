@@ -8,6 +8,3 @@ Open your JavaScript console after searching for a __TAG__ (this script will not
 
 ## Format
 Title | Discount | Original Price | Discounted Price | Release Date (m/d/yyyy) | Rating | Windows | Mac | Linux | VR | Store Page
-
-## License
-MIT
