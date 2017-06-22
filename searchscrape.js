@@ -2,12 +2,21 @@ var games = [];
 
 Array.prototype.slice.call(document.getElementsByClassName("search_result_row")).forEach(function(v){
 	if( v.getElementsByClassName("search_discount").length > 0 && v.getElementsByClassName("search_discount")[0].innerText.trim() != "" ) {
+		var releasedate;
+		try {
+			releasedate = new Date(v.getElementsByClassName("search_released")[0].innerText.trim());
+			releasedate = (releasedate.getMonth()+1) + "/" + releasedate.getDate() + "/" + releasedate.getFullYear();
+		} catch(e){
+			releasedate = v.getElementsByClassName("search_released")[0].innerText.trim();
+		}
+
 		var game = [
 			//document.getElementsByClassName("searchtag tag_dynamic")[0].children[0].innerText,
 			v.getElementsByClassName("title")[0].innerText.trim(),
 			v.getElementsByClassName("search_discount")[0].innerText.slice(1).trim(),
 			v.getElementsByClassName("search_price discounted")[0].children[0].innerText,
 			v.getElementsByClassName("search_price discounted")[0].innerText.split("\n")[1].trim(),
+			releasedate
 		]
 
 		try {
