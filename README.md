@@ -7,4 +7,4 @@ Created for /r/Steam's Summer Sale spreadsheet.
 Open your JavaScript console after searching. Then, paste in the code below.
 
 ## Format
-Title | Discount | Original Price | Discounted Price | Release Date (m/d/yyyy) | Rating | Windows | Mac | Linux | VR | TC |Store Page
+Title | Discount | Original Price | Discounted Price | Release Date (m/d/yyyy) | Rating | Windows | Mac | Linux | VR | TC | Bundled on Steam | Store Page
