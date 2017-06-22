@@ -21,8 +21,8 @@ Array.prototype.slice.call(document.getElementsByClassName("search_result_row"))
 			game.push("NA");
 		}
 
+		game.push(v.getElementsByClassName("win").length > 0 ? "YES" : "NO");
 		game.push(v.getElementsByClassName("mac").length > 0 ? "YES" : "NO");
-		game.push(v.getElementsByClassName("windows").length > 0 ? "YES" : "NO");
 		game.push(v.getElementsByClassName("linux").length > 0 ? "YES" : "NO");
 
 		game.push(( v.getElementsByClassName("oculusrift").length > 0 || v.getElementsByClassName("htcvive").length > 0 || v.getElementsByTagName("razerosvr").length > 0 ) ? "YES" : "NO" );
