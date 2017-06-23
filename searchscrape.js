@@ -67,7 +67,7 @@ Array.prototype.slice.call(document.getElementsByClassName("search_result_row"))
                 game.push(link);
                 games.push(game.join("\t"));
                 waitingRequest--;
-            } else if(this.readyState === 4) {
+            } else if (this.readyState === 4) {
                 game.push("?");
                 game.push("?");
                 game.push(link);
@@ -82,11 +82,15 @@ Array.prototype.slice.call(document.getElementsByClassName("search_result_row"))
 });
 
 var timer = setInterval(function () {
-    if(waitingRequest === 0){
+    if (waitingRequest === 0) {
         clearInterval(timer);
-        console.log(games.join("\n"));
+        if (games.length === 0) {
+            console.log("Couldn't find any discounted games. \nPlease make sure that you're on /search/ page with discounted games on it");
+        } else {
+            console.log(games.join("\n"));
+        }
     } else {
-        console.log("Fetching games %d / %d", totalRequest-waitingRequest, totalRequest);
+        console.log("Fetching games %d\% / %d\%", 100 * (totalRequest - waitingRequest) / 100, 100 / totalRequest);
     }
 }, 100);
 
