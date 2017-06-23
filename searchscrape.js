@@ -90,7 +90,7 @@ var timer = setInterval(function () {
             console.log(games.join("\n"));
         }
     } else {
-        console.log("Fetching games %d\% / %d\%", 100 * (totalRequest - waitingRequest) / 100, 100 / totalRequest);
+        console.log("Fetching games %d / %d", (totalRequest - waitingRequest), totalRequest);
     }
 }, 100);
 
