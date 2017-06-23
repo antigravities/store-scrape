@@ -4,7 +4,7 @@ var games = [],
     totalRequest = document.getElementsByClassName("search_result_row").length;
 
 Array.prototype.slice.call(document.getElementsByClassName("search_result_row")).forEach(function (v) {
-    if (!v.getAttribute('data-ds-packageid'))
+    if (v.getAttribute('data-ds-packageid') == null && v.getAttribute('data-ds-bundleid') == null)
         if (v.getElementsByClassName("search_discount").length > 0 && v.getElementsByClassName("search_discount")[0].innerText.trim() != "") {
             var releasedate;
             try {
