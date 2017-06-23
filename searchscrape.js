@@ -91,7 +91,8 @@ var timer = setInterval(function () {
                 console.log(games.join("\n"));
             }
         } else {
-            var message = "Fetching games " + (totalRequest - waitingRequest) + " / " + totalRequest;
+            var bundles = (totalRequest - waitingRequest),
+                message = "Fetching games " + (totalRequest - waitingRequest - bundles) + " / " + (totalRequest - bundles);
             if (lastMessage !== message) {
                 console.log(message);
                 lastMessage = message;
